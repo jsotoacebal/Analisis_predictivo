@@ -45,7 +45,7 @@ boxplot(ONPL$num_hrefs,
         ylab = "hwy"
 )
 
-#Creaci贸n de nueva variable para clasificar d铆a de la semana
+#Creaci髇 de nueva variable para clasificar d韆 de la semana
 
 ONPL <- ONPL %>%
   mutate(weekday = case_when(
@@ -59,11 +59,11 @@ ONPL <- ONPL %>%
   ))
 
 
-#Organizaci贸n en orden de dia de semana
+#Organizaci髇 en orden de dia de semana
 ONPL$weekday = factor(ONPL$weekday,
                       levels = c("Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"))
 
-#Creaci贸n de nueva variable para clasificar tipo de canal
+#Creaci髇 de nueva variable para clasificar tipo de canal
 ONPL <- ONPL %>%
   mutate(data_channel = case_when(
     data_channel_is_lifestyle == 1 ~ "Lifestyle",
@@ -94,7 +94,7 @@ GGally::ggcorr(
 ggplot(ONPL, aes(x = n_tokens_content, y = shares)) +
   geom_point(alpha = 0.1, color = "#802218") +
   labs(x = "Cantidad de palabras", y = "Cantidad de veces compartido") +
-  ggtitle("Relaci贸n entra cantidad de palabras y cantidad de veces compartido") +
+  ggtitle("Relaci髇 entra cantidad de palabras y cantidad de veces compartido") +
   scale_x_continuous(breaks = seq(0, 8000, by = 500)) +
   scale_y_continuous(labels = comma) +
   theme_classic()
@@ -106,8 +106,8 @@ quantile(test)
 #Scatter plot cantidad de palabras titulo
 ggplot(data=ONPL, aes(x=n_tokens_title, y= shares)) +
   geom_point(color = "#a41916")  +
-  labs(x = "Cantidad de palabras en el t铆tulo", y = "Cantidad de veces compartido") +
-  ggtitle("Relaci贸n entre palabras en el t铆tulo  y cantidad de veces compartido") +
+  labs(x = "Cantidad de palabras en el t韙ulo", y = "Cantidad de veces compartido") +
+  ggtitle("Relaci髇 entre palabras en el t韙ulo  y cantidad de veces compartido") +
   scale_x_continuous(breaks = seq(0, 20, by = 2)) +
   scale_y_continuous(labels = comma) +
   theme_classic()
@@ -119,7 +119,7 @@ quantile(test)
 ggplot(ONPL, aes(x = num_keywords, y = shares)) +
   geom_point(alpha = 0.1, color = "#b5262a") +
   labs(x = "Cantidad de palabras claves", y = "Cantidad de veces compartido") +
-  ggtitle("Relaci贸n entre cantidad de palabras clave y cantidad de veces compartido") +
+  ggtitle("Relaci髇 entre cantidad de palabras clave y cantidad de veces compartido") +
   scale_x_continuous(breaks = seq(0, 10, by = 2)) +
   scale_y_continuous(labels = comma) +
   theme_classic()
@@ -133,7 +133,7 @@ quantile(test)
 ggplot(data=ONPL, aes(x=num_hrefs, y= shares)) +
   geom_point(color = "#dd1f13")  +
   labs(x = "Cantidad de referencias", y = "Cantidad de veces compartido") +
-  ggtitle("Relaci贸n entre referencias  y cantidad de veces compartido") +
+  ggtitle("Relaci髇 entre referencias  y cantidad de veces compartido") +
   scale_x_continuous(breaks = seq(0, 300, by = 25)) +
   scale_y_continuous(labels = comma) +
   theme_classic()
@@ -146,7 +146,7 @@ quantile(test)
 ggplot(ONPL, aes(x = num_imgs, y = shares)) + 
   geom_point(alpha = 0.5, color = "#dd1f13") + 
   labs(x = "Cantidad de imagenes", y = "Cantidad de veces compartido", 
-       title = "Relaci贸n entre cantidad de imagenes y cantidad de veces compartido") + 
+       title = "Relaci髇 entre cantidad de imagenes y cantidad de veces compartido") + 
   scale_x_continuous(breaks = seq(0, 150, by = 10)) +
   scale_y_continuous(labels = comma) +
   theme_classic()
@@ -160,7 +160,7 @@ quantile(test)
 ggplot(ONPL, aes(x = num_videos, y = shares)) +
   geom_point(alpha = 0.1, color = "#b5262a") +
   labs(x = "Cantidad de videos", y = "Cantidad de veces compartido") +
-  ggtitle("Relaci贸n entra cantidad de videos y cantidad de veces compartido") +
+  ggtitle("Relaci髇 entra cantidad de videos y cantidad de veces compartido") +
   scale_x_continuous(breaks = seq(0, 100, by = 10)) +
   scale_y_continuous(labels = comma) +
   theme_classic()
@@ -182,7 +182,7 @@ ggplot(ONPL_sum_ch, aes(x = data_channel, suma_dch, fill = data_channel)) +
   scale_y_continuous(labels = comma) +
   labs(title = "Cantidad de veces compartido por tema",x = "Tema", y = "Cantidad de veces compartido")
 
-p_c = ONPL_sum_channel %>% mutate(porcentaje = suma_dc / sum(suma_dc)*100)
+p_c = ONPL_sum_ch %>% mutate(porcentaje = suma_dch / sum(suma_dch)*100)
 
 
 #Grafico cantiad de veces compartido por dia de semana
@@ -195,7 +195,7 @@ p = ONPL_sum_dia %>% mutate(porcentaje = suma_d / sum(suma_d)*100)
 
 ggplot(ONPL_sum_dia, aes(x = weekday,suma_d, fill = weekday)) +
   geom_col(fill = "#e73927") + scale_fill_grey(start = 0.25, end = 0.75) +
-  labs(title = "Cantidad de veces compartido por d铆a de semana",x = "D铆a de la semana", y = "Cantidad de veces compartido")
+  labs(title = "Cantidad de veces compartido por d韆 de semana",x = "D韆 de la semana", y = "Cantidad de veces compartido")
 
 
 #Cantidad de veces compartido por canal y por dia de semana
