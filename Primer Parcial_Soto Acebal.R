@@ -35,7 +35,6 @@ map_dbl(ONPL, function(x) mean(is.na(x)) * 100) %>%
   as.data.frame()
 #No hay datos faltantes
 
-#Ver outliers
 
 ggplot(ONPL) +
   aes(x = num_imgs) +
@@ -104,9 +103,6 @@ ggplot(ONPL, aes(x = n_tokens_content, y = shares)) +
 test = ONPL$n_tokens_content
 quantile(test)
 
-sk = ONPL %>% select (n_tokens_content , shares) %>% filter (n_tokens_content < 1500) %>% summarise(suma = sum(shares))
-
-sk/sum(ONPL$shares)*100
 
 #Scatter plot cantidad de palabras titulo
 ggplot(data=ONPL, aes(x=n_tokens_title, y= shares)) +
